@@ -13,13 +13,13 @@ class ToDoListController{
 class TodoListModel{
     ToDoItem: ArrayList
 
-    +addItem(String)
-    +removeItem(String)
+    +addItem(TodoItem)
+    +removeItem(TodoItem)
     +searchItem(String): TodoItem
-    +editItemTitle(String)
-    +editItemDueDate(String)
-    +editItemDescription(String)
-    +isComplete(Boolean)
+    +editItemTitle(TodoItem, String)
+    +editItemDueDate(TodoItem, String)
+    +editItemDescription(TodoItem,String)
+    +isComplete(TodoItem, Boolean)
     +save()
     +clear()
     +displayIncomplete()
