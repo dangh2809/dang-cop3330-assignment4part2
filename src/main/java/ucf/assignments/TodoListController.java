@@ -8,11 +8,14 @@ package ucf.assignments;
 import javafx.beans.Observable;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.stage.FileChooser;
+import javafx.stage.Window;
 
-import java.awt.event.ActionEvent;
+import java.io.File;
 import java.net.URL;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -33,16 +36,21 @@ public class TodoListController implements Initializable {
     Button addItemButton;
     @FXML
     CheckBox isComplete;
+    @FXML
+
+    FileChooser fileChooser = new FileChooser();
 
     ObservableList<TodoItem> list = FXCollections.observableArrayList();
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         datePicker.setValue(LocalDate.now());
+        fileChooser.setInitialDirectory(new File("src/main/resources"));
         try {
             todoList.setOnMouseClicked(event -> {
                 TodoItem selectedItem = todoList.getSelectionModel().getSelectedItem();
                 datePicker.setValue(LocalDate.parse(selectedItem.getDueDate()));
                 description.setText(selectedItem.getDescription());
+                isComplete.setSelected(selectedItem.getIsComplete());
             });
         } catch(Exception e){
             System.out.print("Selection Error");
@@ -76,8 +84,7 @@ public class TodoListController implements Initializable {
         todoList.setItems(list);
         refresh();
         list.add(selectedIndex,new TodoItem(itemDescription,itemDueDate,itemIsComplete));
-        //datePicker.setValue(LocalDate.parse(selectedItem.getDueDate()));
-        //description.setText(selectedIndex);
+
 
     }
     @FXML
@@ -87,8 +94,32 @@ public class TodoListController implements Initializable {
     private void refresh(){
         datePicker.setValue(LocalDate.now());
         description.setText(null);
-
+        isComplete.setSelected(false);
     }
 
+    @FXML
+    public void SaveButtonClicked(javafx.event.ActionEvent event) {
+        Window stage = todoList.getScene().getWindow();
+        fileChooser.setTitle("Save Dialog");
+        fileChooser.setInitialFileName("mysave");
+        fileChooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("text file", "*.txt"), new FileChooser.ExtensionFilter("pdf","*.pdf"));
+        try {
+            File file = fileChooser.showSaveDialog(stage);
+            fileChooser.setInitialDirectory(file.getParentFile());
+        } catch(Exception e){
 
+        }
+    }
+    @FXML
+    public void LoadButtonClicked(javafx.event.ActionEvent event) {
+        Window stage = todoList.getScene().getWindow();
+        fileChooser.setTitle("Save Dialog");
+        fileChooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("text file", "*.txt","*.docx","*.doc"), new FileChooser.ExtensionFilter("images","*.pdf","*.gif","*.png"));
+        try {
+            File file = fileChooser.showOpenDialog(stage);
+            fileChooser.setInitialDirectory(file.getParentFile());
+        } catch(Exception e){
+
+        }
+    }
 }

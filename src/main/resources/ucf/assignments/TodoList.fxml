@@ -10,24 +10,24 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="559.0" prefWidth="643.0" style="-fx-background-color: #5d99c6;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ucf.assignments.TodoListController">
+<AnchorPane prefHeight="559.0" prefWidth="737.0" style="-fx-background-color: #5d99c6;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ucf.assignments.TodoListController">
    <children>
-      <Button layoutX="539.0" layoutY="240.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="87.0" style="-fx-background-color: #90caf9; -fx-background-radius: 10; -fx-font-weight: 0.2;" text="SAVE" textFill="#fcf7f7">
+      <Button layoutX="635.0" layoutY="240.0" mnemonicParsing="false" onAction="#SaveButtonClicked" prefHeight="24.0" prefWidth="87.0" style="-fx-background-color: #90caf9; -fx-background-radius: 10; -fx-font-weight: 0.2;" text="SAVE" textFill="#fcf7f7">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
-      <Label layoutX="37.0" layoutY="240.0" prefHeight="17.0" prefWidth="59.0" text="Filter:" textFill="#f5f5f5">
+      <Label layoutX="14.0" layoutY="240.0" prefHeight="17.0" prefWidth="59.0" text="Filter:" textFill="#f5f5f5">
          <font>
             <Font size="16.0" />
          </font>
       </Label>
-      <Button layoutX="191.0" layoutY="240.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="87.0" style="-fx-background-color: #90caf9; -fx-background-radius: 10; -fx-font-weight: 0.2;" text="Completed" textFill="#fcf7f7">
+      <Button layoutX="158.0" layoutY="240.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="87.0" style="-fx-background-color: #81c784; -fx-background-radius: 10; -fx-font-weight: 0.2;" text="Completed" textFill="#fcf7f7">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
-      <Button layoutX="96.0" layoutY="240.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="87.0" style="-fx-background-color: #e57373; -fx-background-radius: 10; -fx-font-weight: 0.2;" text="Incomplete" textFill="#fcf7f7">
+      <Button layoutX="62.0" layoutY="240.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="87.0" style="-fx-background-color: #e57373; -fx-background-radius: 10; -fx-font-weight: 0.2;" text="Incomplete" textFill="#fcf7f7">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
@@ -37,17 +37,27 @@
             <Font name="System Bold" size="36.0" />
          </font>
       </TextField>
-      <ListView fx:id="todoList" layoutX="19.0" layoutY="272.0" prefHeight="270.0" prefWidth="607.0" />
-      <TextArea fx:id="description" layoutX="181.0" layoutY="127.0" prefHeight="95.0" prefWidth="245.0" promptText="description" />
-      <DatePicker fx:id="datePicker" layoutX="439.0" layoutY="127.0" promptText="YYYY-MM-DD" />
+      <ListView fx:id="todoList" layoutX="18.0" layoutY="279.0" prefHeight="270.0" prefWidth="709.0" />
+      <TextArea fx:id="description" layoutX="181.0" layoutY="127.0" prefHeight="95.0" prefWidth="345.0" promptText="Type description here" />
+      <DatePicker fx:id="datePicker" layoutX="537.0" layoutY="127.0" promptText="YYYY-MM-DD" />
       <Button fx:id="addItemButton" layoutX="43.0" layoutY="127.0" mnemonicParsing="false" onAction="#AddItemButtonClicked" prefHeight="25.0" prefWidth="125.0" text="Add Todo Item" />
       <Button layoutX="43.0" layoutY="162.0" mnemonicParsing="false" onAction="#UpdateButtonClicked" prefHeight="25.0" prefWidth="125.0" text="Update" />
-      <CheckBox fx:id="isComplete" layoutX="439.0" layoutY="166.0" mnemonicParsing="false" text="Complete">
+      <CheckBox fx:id="isComplete" layoutX="537.0" layoutY="168.0" mnemonicParsing="false" text="Complete" textFill="WHITE">
          <font>
             <Font size="16.0" />
          </font>
       </CheckBox>
-      <Button layoutX="433.0" layoutY="240.0" mnemonicParsing="false" onAction="#DeleteButtonClicked" prefHeight="24.0" prefWidth="87.0" style="-fx-background-color: #e57373; -fx-background-radius: 10; -fx-font-weight: 0.2;" text="Delete" textFill="#fcf7f7">
+      <Button layoutX="445.0" layoutY="240.0" mnemonicParsing="false" onAction="#DeleteButtonClicked" prefHeight="24.0" prefWidth="87.0" style="-fx-background-color: #e57373; -fx-background-radius: 10; -fx-font-weight: 0.2;" text="Delete" textFill="#fcf7f7">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+      <Button layoutX="252.0" layoutY="240.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="51.0" style="-fx-background-color: #90caf9; -fx-background-radius: 10; -fx-font-weight: 0.2;" text="All" textFill="#fcf7f7">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+      <Button layoutX="543.0" layoutY="240.0" mnemonicParsing="false" onAction="#LoadButtonClicked" prefHeight="24.0" prefWidth="87.0" style="-fx-background-color: #90caf9; -fx-background-radius: 10; -fx-font-weight: 0.2;" text="LOAD" textFill="#fcf7f7">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>

@@ -12,6 +12,8 @@ class ToDoListController implements Initializable{
     +AddButtonClicked();
     +DeleteButtonClicked();
     +UpdateButtonClicked();
+    +LoadButtonClicked();
+    +SaveButtonClicked();
 }
 
 class TodoListModel{
