@@ -1,13 +1,17 @@
 @startuml
 'https://plantuml.com/class-diagram
-class ToDoApp{
+class ToDoApp extends org.javafx.Application{
     main()
     start()
 }
-class ToDoListController{
+class ToDoListController implements Initializable{
     -model: ListsMenu
-
+    -refresh()
     'GUI event handlers
+    +Initialize()
+    +AddButtonClicked();
+    +DeleteButtonClicked();
+    +UpdateButtonClicked();
 }
 
 class TodoListModel{
@@ -24,15 +28,14 @@ class TodoListModel{
     +clear()
     +displayIncomplete()
     +displayCompleted()
-    +load()
 }
 class TodoItem{
     description: String
     dueDate: String
     isComplete: Boolean
-    title: String
 
-    TodoItem(String,String,String,Boolean)
+
+    TodoItem(String,String,Boolean)
 
     +setDescription(String)
     +setTitle(String)
@@ -45,7 +48,7 @@ class TodoItem{
 
 }
 
-org.javafx.Application <|-- ToDoApp
+
 ToDoApp -- ToDoListController
 ToDoListController -- TodoListModel
 TodoListModel *-- TodoItem

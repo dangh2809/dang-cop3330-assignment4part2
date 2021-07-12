@@ -13,7 +13,7 @@ class TodoItemTest {
 
     @Test
     void setDescription() {
-        TodoItem item = new TodoItem();
+        TodoItem item = new TodoItem("","",true);
         String description = "Get the blue masks";
         String expected = "Get the blue masks";
         item.setDescription(description);
@@ -23,7 +23,7 @@ class TodoItemTest {
 
     @Test
     void setDueDate() {
-        TodoItem item = new TodoItem();
+        TodoItem item = new TodoItem("","",true);
         String dueDate = "2021-07-01";
         String expected = "2021-07-01";
         item.setDueDate(dueDate);
@@ -33,7 +33,7 @@ class TodoItemTest {
 
     @Test
     void setIsComplete() {
-        TodoItem item = new TodoItem();
+        TodoItem item = new TodoItem("","",true);
         Boolean isComplete = true;
         Boolean expected = true;
         item.setIsComplete(isComplete);
@@ -41,19 +41,10 @@ class TodoItemTest {
         assertEquals(expected,actual);
     }
 
-    @Test
-    void setTitle() {
-        TodoItem item = new TodoItem();
-        String title = "Cook dinner";
-        String expected = "Cook dinner";
-        item.setTitle(title);
-        String actual = item.getTitle();
-        assertEquals(expected,actual);
-    }
 
     @Test
     void getDescription() {
-        TodoItem item = new TodoItem();
+        TodoItem item = new TodoItem("","",true);
         item.setDescription("Using the baking soda to clean");
         String expected = "Using the baking soda to clean";
         String actual = item.getDescription();
@@ -62,7 +53,7 @@ class TodoItemTest {
 
     @Test
     void getDueDate() {
-        TodoItem item = new TodoItem();
+        TodoItem item = new TodoItem("","",true);
         item.setDueDate("2021-07-01");
         String expected = "2021-07-01";
         String actual = item.getDueDate();
@@ -71,19 +62,12 @@ class TodoItemTest {
 
     @Test
     void getIsComplete() {
-        TodoItem item = new TodoItem();
+        TodoItem item = new TodoItem("","",true);
         item.setIsComplete(true);
         Boolean expected = true;
         Boolean actual = item.getIsComplete();
         assertEquals(expected,actual);
     }
 
-    @Test
-    void getTitle() {
-        TodoItem item = new TodoItem();
-        item.setTitle("Cook dinner");
-        String expected = "Cook dinner";
-        String actual = item.getTitle();
-        assertEquals(expected,actual);
-    }
+
 }
