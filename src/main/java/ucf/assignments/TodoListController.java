@@ -41,6 +41,7 @@ public class TodoListController implements Initializable {
     FileChooser fileChooser = new FileChooser();
 
     ObservableList<TodoItem> list = FXCollections.observableArrayList();
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         datePicker.setValue(LocalDate.now());
@@ -121,5 +122,11 @@ public class TodoListController implements Initializable {
         } catch(Exception e){
 
         }
+    }
+
+    public void CompletedButtonClicked(javafx.event.ActionEvent event) {
+    }
+
+    public void IncompleteButtonClicked(javafx.event.ActionEvent event) {
     }
 }
